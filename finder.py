@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from translate import to_latin
 
 def get_name(name:str):
+    name = name.replace("'", "‘")
     data = requests.get(f"https://ismlar.com/uz/name/{name}").text
     soup = BeautifulSoup(data, "html.parser")
     
@@ -16,6 +17,7 @@ def get_name(name:str):
     return {"ok":True, "meaning":to_latin(meaning), "desc":to_latin(dp.find("div", {"class": "space-y-4"}).p.text.strip())} 
 
 def search_name(name):
+    name = name.replace("'", "‘")
     all = []
     soup = BeautifulSoup(requests.get(f"https://ismlar.com/uz/search/{name}").text, "html.parser")
     finder = soup.find("ul", {"class": "list-none space-y-2"})
