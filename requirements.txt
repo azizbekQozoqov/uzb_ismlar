@@ -2,3 +2,4 @@ tinydb
 pytelegrambotapi
 requests
 flask
+beautifulsoup4
