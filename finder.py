@@ -27,6 +27,9 @@ def search_name(name):
     return all
 
 def get_footer():
-    return f"""<i>Yangiliklardan boxabar bo'lish uchun @AzizbekDeveloper sahifasiga obula bo'ling\n@mloqoida_bot - Imloni tekshiruvchi bot.
+    return f"""<i>Yangiliklardan boxabar bo'lish uchun @AzizbekDeveloper sahifasiga obuna bo'ling\n@imloqoida_bot - Imloni tekshiruvchi bot.
     </i>
     """
+
+def get_start_text():
+    return f"""<b>Ismlar ma'nosini bilish uchun bot\n\n<i>@AzizbekDeveloper</i>\n\nwww.ismlar.com</b>"""

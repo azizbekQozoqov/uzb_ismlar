@@ -1,4 +1,4 @@
-from finder import get_name, search_name, get_footer
+from finder import get_name, get_start_text, search_name, get_footer
 from appdb import get_all_users, add_user, add_message
 from telebot import TeleBot
 from telebot.types import Message
@@ -20,7 +20,7 @@ server = Flask(__name__)
 @bot.message_handler(commands=["start"])
 def start(msg: Message):
     add_user(msg)
-    bot.reply_to(msg, "Done")
+    bot.send_message(msg.from_user.id, get_start_text(), parse_mode="HTML")
 
 
 @bot.message_handler(func=lambda msg: True)
@@ -34,6 +34,13 @@ def ret(msg: Message):
     else:
         add_message(msg, False)
         return bot.reply_to(msg, data["message"])
+
+
+
+
+
+
+
 
 @server.route('/' + TOKEN, methods=['POST'])
 def getMessage():
