@@ -20,7 +20,7 @@ server = Flask(__name__)
 @bot.message_handler(commands=["start"])
 def start(msg: Message):
     add_user(msg)
-    bot.send_message(msg.from_user.id, get_start_text(), parse_mode="HTML")
+    bot.send_message(msg.from_user.id, get_start_text(msg.from_user.first_name  ), parse_mode="HTML")
 
 
 @bot.message_handler(func=lambda msg: True)

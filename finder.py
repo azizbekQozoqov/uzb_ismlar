@@ -22,7 +22,7 @@ def search_name(name):
     soup = BeautifulSoup(requests.get(f"https://ismlar.com/uz/search/{name}").text, "html.parser")
     finder = soup.find("ul", {"class": "list-none space-y-2"})
     if not finder:
-        return {"ok":False,"message":"Ism topilmadi! Yoki qandaydur xatolik yu berdi."}
+        return {"ok":False,"message":"Ism topilmadi! Yoki qandaydur xatolik yuz berdi."}
     for li in finder.find_all("li"):
         all.append(to_latin((li.find("div", {"class": "space-y-4"}).text.strip()), to_latin(li.h2.text.strip())))
 
@@ -33,5 +33,5 @@ def get_footer():
     </i>
     """
 
-def get_start_text():
-    return f"""<b>Ismlar ma'nosini bilish uchun bot\n\n<i>@AzizbekDeveloper</i>\n\nwww.ismlar.com</b>"""
+def get_start_text(name=" "):
+    return f"""<b>Assalomu alaykum <i>{name}</i> Ushbu botdan ismlar ma'nosini bilish uchun foydaana olasiz😉. Menga shunchaki ismingizni yuboring!\n\nYangiliklar 👉 <i>@AzizbekDeveloper</i>\n\nwww.ismlar.com</b>"""
